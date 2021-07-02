@@ -1,0 +1,40 @@
+{
+  "name": "chrome-extension-vue-template",
+  "version": "0.0.1",
+  "description": "this is description",
+  "author": "Andrew Nguyen",
+  "license": "ISC",
+  "scripts": {
+    "dev": "cross-env webpack -w",
+    "build": "cross-env webpack",
+    "zip": "cross-env node ./scripts/zip.js"
+  },
+  "dependencies": {
+    "async": "^3.2.0",
+    "core-js": "^3.6.5",
+    "lodash": "^4.17.21",
+    "request": "^2.88.2",
+    "vue": "^2.6.11"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "archiver": "^5.3.0",
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "copy-webpack-plugin": "^9.0.1",
+    "cross-env": "^7.0.3",
+    "css-loader": "^5.2.6",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.2",
+    "javascript-obfuscator": "^2.15.5",
+    "mini-css-extract-plugin": "^1.6.2",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^8.0.2",
+    "vue-loader": "^15.9.7",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^5.41.0",
+    "webpack-cli": "^4.7.2",
+    "webpack-obfuscator": "^3.3.2",
+    "yargs": "^17.0.1"
+  }
+}
