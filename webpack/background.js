@@ -7,9 +7,13 @@
 
 const { resolve } = require('path')
 const webpack_obfuscator = require('webpack-obfuscator')
+const terser_webpack_plugin = require("terser-webpack-plugin")
+
+const IS_DEV = process.env.NODE_ENV !== 'production'
 
 module.exports = {
-    mode: 'production',
+    mode: process.env.NODE_ENV,
+    devtool: 'cheap-module-source-map',
     name: 'background',
     entry: ['./src/background/index.js'],
     output: {
@@ -34,4 +38,16 @@ module.exports = {
     plugins: [
         new webpack_obfuscator({ rotateStringArray: true }, []),
     ],
+    optimization: {
+        minimize: true,
+        minimizer: [
+            new terser_webpack_plugin({
+                terserOptions: {
+                    compress: {
+                        drop_console: !IS_DEV
+                    }
+                }
+            })
+        ],
+    },
 }

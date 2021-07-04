@@ -9,6 +9,9 @@
 const path = require('path')
 const copy_webpack_plugin = require('copy-webpack-plugin')
 const clean_webpack_plugin = require('clean-webpack-plugin').CleanWebpackPlugin;
+const terser_webpack_plugin = require("terser-webpack-plugin")
+
+const IS_DEV = process.env.NODE_ENV !== 'production'
 
 // get some parameter from package.json, and paste to manifest.json
 const PACKAGE = require('../package.json')
@@ -18,7 +21,8 @@ MANIFEST.description = PACKAGE.description
 MANIFEST.version = PACKAGE.version
 
 module.exports = {
-    mode: 'production',
+    mode: process.env.NODE_ENV,
+    devtool: 'cheap-module-source-map',
     name: 'index',
     entry: './index.js',
     output : {
@@ -41,4 +45,16 @@ module.exports = {
         }),
         new clean_webpack_plugin()
     ],
+    optimization: {
+        minimize: true,
+        minimizer: [
+            new terser_webpack_plugin({
+                terserOptions: {
+                    compress: {
+                        drop_console: !IS_DEV
+                    }
+                }
+            })
+        ],
+    },
 }
