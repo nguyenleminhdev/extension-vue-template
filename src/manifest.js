@@ -1,4 +1,4 @@
-{
+module.exports = {
     "manifest_version": 2,
     "icons": {
         "16": "assets/img/16.png",

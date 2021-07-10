@@ -17,3 +17,4 @@
 - Extension Background
 - Extension Options Page
 - Service constants
+- Dev không Obfuscator

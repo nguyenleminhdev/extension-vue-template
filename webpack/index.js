@@ -15,7 +15,7 @@ const IS_DEV = process.env.NODE_ENV !== 'production'
 
 // get some parameter from package.json, and paste to manifest.json
 const PACKAGE = require('../package.json')
-const MANIFEST = require('../src/manifest.json')
+const MANIFEST = require('../src/manifest.js')
 MANIFEST.name = PACKAGE.name
 MANIFEST.description = PACKAGE.description
 MANIFEST.version = PACKAGE.version
@@ -33,7 +33,7 @@ module.exports = {
         new copy_webpack_plugin({
             patterns: [
                 {
-                    from: './src/manifest.json',
+                    from: './src/manifest.js',
                     to: 'manifest.json',
                     transform: () => Buffer.from(JSON.stringify(MANIFEST, null, 2)),
                 },
