@@ -13,7 +13,9 @@ const async = require('async')
 const _ = require('lodash')
 
 const WEBPACK_CONFIG = require('../webpack.config.js')
-const FILENAME = _.get(argv, '[0]', 'dist.zip')
+
+const PACKAGE = require('../package.json')
+const FILENAME = _.get(argv, '[0]', `${PACKAGE.name}_${PACKAGE.version}.zip`)
 
 async.waterfall([
     cb => { // * webpack compiler

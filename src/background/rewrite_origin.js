@@ -1,3 +1,11 @@
+/*******************************************************************************
+ * 
+ * * Ghi đè orgin mặc định của ext, thành origin của domain được call
+ * 
+ * => fix lỗi call api bị chặn do khác origin
+ * 
+ ******************************************************************************/
+
 import async from 'async'
 
 const GET_ORIGIN_FROM_URL = raw_url => {
